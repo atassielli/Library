@@ -1,3 +1,4 @@
+
 function Book (title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -8,4 +9,6 @@ function Book (title, author, pages, read) {
     }
 }
 
-console.log(Book.info())
+const book1 = new Book('Star Wars', 'George Lucas', 457, 'Have read')
+
+console.log(book1.info())
