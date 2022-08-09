@@ -28,8 +28,9 @@ function storeBook () {
     library.appendChild(newCard);
     let bookInfo = document.createElement('div');
     bookInfo.classList.add('.bookInfo');
-    bookInfo.textContent = `${myLibrary}`;
+    bookInfo.textContent = `${myLibrary[myLibrary.length-1]}`;
     newCard.appendChild(bookInfo);
+
 }
 
 //Create button to bring up a form that asks the user for the details of a new book //
@@ -45,9 +46,16 @@ newBookButton.addEventListener('click', function () {
     newTitle = window.prompt('Title:');
     newAuthor = window.prompt('Author:');
     newPages = window.prompt('Number of Pages:');
-    newread = window.prompt('Have you finished this book?')
+    newread = window.prompt('Have you finished this book? (Yes or No)');
+    validateStatus();
     addBook();
 })
+
+function validateStatus() {
+    while (newread.toLowerCase() != 'yes' && newread.toLowerCase != 'no') {
+        newread = window.prompt('You must answer Yes or No. Have you read this book?')
+    }
+}
 
 const library = document.querySelector('.yourBooks');
 
