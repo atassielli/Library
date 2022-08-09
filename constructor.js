@@ -17,7 +17,19 @@ let newread;
 
 function addBook () {
     let newBook = new Book (newTitle, newAuthor, newPages, newread);
-    myLibrary.push(newBook);
+    myLibrary.push(newBook.info());
+    console.log(myLibrary)
+    storeBook();
+}
+
+function storeBook () {
+    let newCard = document.createElement('div');
+    newCard.classList.add('.book');
+    library.appendChild(newCard);
+    let bookInfo = document.createElement('div');
+    bookInfo.classList.add('.bookInfo');
+    bookInfo.textContent = `${myLibrary}`;
+    newCard.appendChild(bookInfo);
 }
 
 //Create button to bring up a form that asks the user for the details of a new book //
@@ -35,8 +47,8 @@ newBookButton.addEventListener('click', function () {
     newPages = window.prompt('Number of Pages:');
     newread = window.prompt('Have you finished this book?')
     addBook();
-    console.log(myLibrary)
 })
 
+const library = document.querySelector('.yourBooks');
 
 
