@@ -49,20 +49,29 @@ function storeBook () {
         bookread.textContent = 'Not Completed';
         bookread.style.cssText = 'background-color: red';
     }
+
     newCard.appendChild(bookread);
+
+    bookread.addEventListener('click', function () {
+        if (bookread.textContent === 'Completed') {
+            bookread.textContent = 'Not Completed';
+            bookread.style.cssText = 'background-color: red';
+        } else {
+            bookread.textContent = 'Completed';
+            bookread.style.cssText ='background-color: green';
+        }
+    })
+
     let bookDelete = document.createElement('button');
     bookDelete.classList.add('bookDelete')
     bookDelete.classList.add('cardButton')
     bookDelete.textContent = 'Delete';
     newCard.appendChild(bookDelete);    
 
-    console.log(bookDelete.newCard)
-
     bookDelete.addEventListener('click', function () {
         newCard.remove();
     })
 }
-
 
 //Create button to bring up a form that asks the user for the details of a new book //
 
@@ -70,6 +79,7 @@ const addBooks = document.querySelector('.addBook');
 
 const newBookButton = document.createElement('button');
 newBookButton.classList.add('button');
+newBookButton.classList.add('addBookButton')
 newBookButton.textContent = 'Add Book';
 addBooks.appendChild(newBookButton);
 
@@ -89,7 +99,6 @@ function validateStatus() {
 }
 
 const library = document.querySelector('.cardContainer');
-
 
 const empty = document.querySelector('.empty');
 
